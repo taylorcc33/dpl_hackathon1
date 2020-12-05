@@ -3,17 +3,30 @@
 
 <h2>Current Trips</h2>
 
-<% @trips.each do |trip| %>
-<div><%= trip.name %></div>
-<div><%= trip.description %></div>
-<div><%= link_to "Edit", edit_user_trip_path(@user, trip)%></div>
-<div><%= link_to "Delete", [@user, trip], method: :delete %> </div>
+<div class='ui cards'>
+  <% @trips.each do |trip| %>
+  <div class='card'>
+    <div class='content'>
+      <div class='header'><%= trip.name %></div>
 
-<div><%= link_to "locations", trip_locations_path(trip) %></div>
+      <div><%= trip.description %></div>
+      <br />
+      <%= link_to "Edit", edit_user_trip_path(@user, trip), :class => 'ui mini button'%>
+
+
+      <%= link_to "Trip Info", trip_locations_path(trip), :class => 'ui mini button' %>
+
+      <%= link_to "Delete", [@user, trip], method: :delete, :class => 'ui mini red button' %>
+
+
+    </div>
+  </div>
+
+  <% end %>
+</div>
 
 <br />
-<% end %>
-
 <%= link_to 'Add Trip', new_user_trip_path, :class => 'green ui button' %>
+<br /><br />
 
 <%= button_to "Log Out", destroy_user_session_path, method: :delete, :class => 'red basic ui button' %>
