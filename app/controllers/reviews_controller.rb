@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :set_trip
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
+    @reviews = @trip.reviews
   end
 
   def show
@@ -20,6 +22,19 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def update
+    if @review.update(review_params)
+      redirect_to user_trip_path(@trip.user_id, @trip)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to trip_reviews_path
+  end
+
   def edit
   end
 
@@ -27,6 +42,10 @@ class ReviewsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:trip_id])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 
   def review_params
