@@ -1,8 +1,8 @@
+<%= link_to 'Back To reviews', trip_reviews_path(@trip) %>
 <h1><%= @trip.name %> Review</h1>
 <h4>Title: <%= @review.title %></h4>
 <h4>Body: <%= @review.body %></h4>
 <h4>Score: <%= @review.score %></h4>
 <br />
 <%= link_to 'Edit review', edit_trip_review_path([@trip, @review]) %> |
-<%= link_to 'Delete review', [@trip, @review], method: :delete %> |
-<%= link_to 'Back To reviews', trip_reviews_path(@trip) %>
+<%= link_to 'Delete review', [@trip, @review], method: :delete %> 

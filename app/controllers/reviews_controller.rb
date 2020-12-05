@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   def create
     @review = @trip.reviews.new(review_params)
     if @review.save
-      redirect_to user_trip_path(@trip.user_id, @trip)
+      redirect_to trip_reviews_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to user_trip_path(@trip.user_id, @trip)
+      redirect_to trip_reviews_path
     else
       render :edit
     end

@@ -1,7 +1,12 @@
+<%= link_to 'Back to Trips', user_trips_path(@trip) %>
 <h1>Click a Review To View It</h1>
 <%= link_to 'Add review', new_trip_review_path(@trip) %>
 <ul>
   <% @reviews.each do |review| %>
-    <li><%= link_to review.title, [@trip, review] %></li>
+    <li>
+      <%= link_to review.title, [@trip, review] %>
+      <p><%= review.body %></p>
+      <p>Score: <%= review.score %> </p>
+    </li>
   <% end %>
 </ul>
