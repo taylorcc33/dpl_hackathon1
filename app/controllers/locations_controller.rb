@@ -11,14 +11,14 @@ class LocationsController < ApplicationController
   end
 
   def new
-    @location = @trip.location.new
+    @location = @trip.locations.new
   end
 
   def create
-    @location = @trip.location.new(location_params)
+    @location = @trip.locations.new(location_params)
 
       if @location.save
-        redirect_to @locations
+        redirect_to trip_locations_path(@trip)
       else 
         render :new
       end
@@ -29,7 +29,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to trip_path(@trip)
+      redirect_to trip_locations_path(@trip)
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to @trip
+    redirect_to trip_locations_path(@trip)
   end
 
   private
@@ -52,6 +52,6 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name, :description, :type)
+    params.require(:location).permit(:name, :description, :kind, :trip_id)
   end
 end

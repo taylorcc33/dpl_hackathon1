@@ -1,8 +1,17 @@
+
 <h1> <%= @location.name %> </h1>
-<h4> <%= @location.type %> </h4>
+<h2> <%= @location.kind %> </h2>
 
-    <%= @location.description %>
+<%= @location.description %>
+<br/>
 
- <%= link_to "Back to the locations", @trip %>
+ <br/>
+ <%= link_to "Back to the locations", trip_locations_path %>
+ <br/>
  <%= link_to "Edit location", edit_trip_location_path %>
+ <br/>
+ <%# <%= link_to "add address", new_location_address_path(@location) %>
+ <br/>
  <%= link_to "Delete this location from the trip", [@trip, @location], method: :delete %>
+ <br/>
+

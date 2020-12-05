@@ -8,13 +8,13 @@
     
     <div class="field">
       <%= f.label :kind %>
-      <%= f.text_field :kind, required: true, placeholder: "#{@location.type}" %>
+      <%= f.text_field :kind, required: true, placeholder: "#{@location.kind}" %>
     </div>
 
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_field :description, required: true, placeholder: "#{@location.description}" %>
+      <%= f.text_area :description, required: true, placeholder: "#{@location.description}" %>
     </div>
 
-    <%= f.submit "Add location"%>
+    <%= f.submit "Update location"%>
   <% end %>

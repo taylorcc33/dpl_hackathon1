@@ -1,20 +1,20 @@
-<h1> Add a location to <%= @trip.name %> trip </h1>
+<h1> Add a location to <%= @trip.name %> </h1>
 
   <%= form_with(model: [@trip, @location], local: true) do |f| %>
     <div class="field">
       <%= f.label :name %>
-      <%= f.text_field :name, required: true, placeholder: "What is the name of this location?" %>
+      <%= f.text_field :name, required: true, placeholder: "Location name" %>
     </div>
     
     <div class="field">
       <%= f.label :kind %>
-      <%= f.text_field :kind, required: true, placeholder: "What type of location is it?" %>
+      <%= f.text_field :kind, required: true, placeholder: "What kind is it?" %>
     </div>
 
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_field :description, required: true, placeholder: "Great! Now tell us a little about this location" %>
+      <%= f.text_area :description, required: true, placeholder: "Great! Now tell us a little about this location" %>
     </div>
-
+    
     <%= f.submit "Add location"%>
   <% end %>
