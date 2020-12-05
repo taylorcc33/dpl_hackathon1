@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :get_location, only: [:new, :create]
-
+  before_action :get_location
+  before_action :set_address, only: [:show, :edit, :update]
   def index
     @addresses = Adresss.all
   end
@@ -22,9 +22,21 @@ class AddressesController < ApplicationController
   end
 
   def edit
+    #/locations/:location_id/address/:id/edit(.:format)
+  end
+
+  def update
+    if @appointment.update(appointment_params)
+      redirect_to location_address_path(@location, @appointment)
+    else
+      render :edit
+    end
   end
 
   private
+  def set_address
+    @address = Address.find(params[:id])
+  end
   def get_location
     @location = Location.find(params[:location_id])
   end
