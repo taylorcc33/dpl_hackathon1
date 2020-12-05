@@ -10,7 +10,7 @@
 
 <%= link_to "add a location to this trip!", new_trip_location_path(@trip) %>
 <br />
-<%= link_to "back to trips", user_trips_path(@trip) %>
+<%= link_to "back to trips", user_trips_path(current_user) %>
 
 <%# <%= link_to "Back to trips",  %>
 
