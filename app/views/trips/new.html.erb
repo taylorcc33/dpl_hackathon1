@@ -1,2 +1,8 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+<h1>Create New Trip</h1>
+<%= form_for [@user, @trip] do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, required: true, autofocus: true %>
+<%= f.label :description %>
+<%= f.text_field :description, required: true %>
+<%= f.submit %>
+<% end %>
