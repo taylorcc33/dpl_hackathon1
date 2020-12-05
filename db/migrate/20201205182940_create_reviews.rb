@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
     create_table :reviews do |t|
       t.string :title
       t.text :body
-      t.int :score
+      t.integer :score
       t.belongs_to :trip, null: false, foreign_key: true
 
       t.timestamps
