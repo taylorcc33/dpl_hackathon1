@@ -1,16 +1,17 @@
-<h1>Here you can take a deeper look at the places we'll be visitng on our trip to <%= @trip %> </h1>
+<h1>Here you can take a deeper look at the places we'll be visiting during <%= @trip.name %> </h1>
 <p>Click on the ❓ to learn more</p>
 
-    <% @locations.each do |location| %>
-      <%= "#{location.name}" %> <!-- then in our show method you can do location description as well -->
-      <%= link_to "  ❓  ", trip_location_path(@trip, location) %> 
-      <br/><!-- or is this @location?-->
-    <% end %>
+<% @locations.each do |location| %>
+<%= "#{location.name}" %>
+<!-- then in our show method you can do location description as well -->
+<%= link_to "  ❓  ", trip_location_path(@trip, location) %>
+<br /><!-- or is this @location?-->
+<% end %>
 
-    <%= link_to "add a location to this trip!", new_trip_location_path(@trip) %>
-    <br/>
-    <%= link_to "back to trips", user_trips_path(@trip) %>
+<%= link_to "add a location to this trip!", new_trip_location_path(@trip) %>
+<br />
+<%= link_to "back to trips", user_trips_path(@trip) %>
 
-    <%# <%= link_to "Back to trips",  %>
+<%# <%= link_to "Back to trips",  %>
 
-    <!-- link_to go back to trips -->
+<!-- link_to go back to trips -->
