@@ -1,2 +1,13 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h1>Update the review</h1>
+<%= form_with(model: [@trip, @review], local: true, class: "ui form") do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true %>
+  <br />
+  <%= f.label :body %>
+  <%= f.text_area :body, required: true %>
+  <br />
+  <%= f.label :score %>
+  <%= f.integer :score, required: true %>
+  <br />
+  <%= f.submit nil, class: "ui button blue" %>
+<% end %>
