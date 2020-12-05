@@ -1,9 +1,15 @@
 <h1>Welcome <%= current_user.first_name %></h1>
 <%= link_to "Edit Profile", edit_user_registration_path, :class => 'ui purple basic button' %>
 
-<h3>Current Trips</h3>
+<h2>Current Trips</h2>
 
 <% @trips.each do |trip| %>
 <div><%= trip.name %></div>
 <div><%= trip.description %></div>
+
+<br />
 <% end %>
+
+<%= link_to 'Add Trip', new_user_trip_path, :class => 'green ui button' %>
+
+<%= button_to "Log Out", destroy_user_session_path, method: :delete, :class => 'red basic ui button' %>

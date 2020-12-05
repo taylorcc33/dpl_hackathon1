@@ -3,21 +3,19 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   
   def index
-    @trips = current_user.trips
+    @trips = @user.trips
   end
 
   def show
-    @locations = @trip.locations
-
-    @location = Location.find(params[:id])
+    
   end
 
   def new
-    @trip = current_user.trips.new
+    @trip = @user.trips.new
   end
 
   def create
-    @trip = current_user.trips.new(trip_params)
+    @trip = @user.trips.new(trip_params)
 
     if @trip.save
       redirect_to [@user, @trip]
@@ -52,6 +50,6 @@ class TripsController < ApplicationController
     end
 
     def trip_params
-      params.require(:trip).permit(:name, :description)
+      params.require(:trip).permit(:name, :description, :user_id)
     end
 end
