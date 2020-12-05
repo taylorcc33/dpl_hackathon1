@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :get_location
-  before_action :set_address, only: [:show, :edit, :update]
+  before_action :set_address, only: [:show, :edit, :update, :destroy]
   def index
     @addresses = Adresss.all
   end
@@ -26,11 +26,16 @@ class AddressesController < ApplicationController
   end
 
   def update
-    if @appointment.update(appointment_params)
-      redirect_to location_address_path(@location, @appointment)
+    if @address.update(address_params)
+      redirect_to location_address_path(@location, @address)
     else
       render :edit
     end
+  end
+
+  def destroy
+    @address.destroy
+    redirect_to location_address_path(@location)
   end
 
   private
