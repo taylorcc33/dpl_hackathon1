@@ -18,7 +18,7 @@ class TripsController < ApplicationController
     @trip = @user.trips.new(trip_params)
 
     if @trip.save
-      redirect_to [@user, @trip]
+      redirect_to user_trips_path(current_user)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class TripsController < ApplicationController
 
   def update
     if @trip.update(trip_params)
-      redirect_to [@user, @trip]
+      redirect_to [@user, @trip] 
     else
       render :edit
     end
