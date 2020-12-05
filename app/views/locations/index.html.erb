@@ -2,7 +2,7 @@
 <p>Click on the little '?' emoji next to each locatio to learn more</p>
 
     <% @locations.each do |location| %>
-      <%= "#{location.name}, #{location.type}" %> <!-- then in our show method you can do location description as well -->
+      <%= "#{location.name}, #{location.kind}" %> <!-- then in our show method you can do location description as well -->
       <%= link_to "❓", trip_location_path(@trip)%> <!-- or is this @location?-->
     <% end %>
 
