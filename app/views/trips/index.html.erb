@@ -5,23 +5,24 @@
 
 <div class='ui cards'>
   <% @trips.each do |trip| %>
-    <div class='card'>
-      <div class='content'>
-        <div class='header'><%= trip.name %></div>
+  <div class='card'>
+    <div class='content'>
+      <div class='header'><%= trip.name %></div>
 
-        <div><%= trip.description %></div>
-        <br />
-        <%= link_to "Edit", edit_user_trip_path(@user, trip), :class => 'ui mini button'%>
+      <div><%= trip.description %></div>
+      <br />
+      <%= link_to "Edit", edit_user_trip_path(@user, trip), :class => 'ui mini button'%>
 
-        <%= link_to "Reviews", trip_reviews_path(trip), :class => 'ui mini button'%>
+      <%= link_to "Reviews", trip_reviews_path(trip), :class => 'ui mini button'%>
 
-        <%= link_to "Trip Info", trip_locations_path(trip), :class => 'ui mini button' %>
+      <%= link_to "Trip Info", trip_locations_path(trip), :class => 'ui mini button' %>
+      <br /><br />
 
-        <%= link_to "Delete", [@user, trip], method: :delete, :class => 'ui mini red button' %>
+      <%= link_to "Delete", [@user, trip], method: :delete, :class => 'ui mini red button' %>
 
 
-      </div>
     </div>
+  </div>
 
   <% end %>
 </div>
