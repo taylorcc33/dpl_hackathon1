@@ -7,7 +7,7 @@
 <div><%= trip.name %></div>
 <div><%= trip.description %></div>
 <div><%= link_to "Edit", edit_user_trip_path(@user, trip)%></div>
-<div><%= link_to "Delete", [@user, @trip], method: :delete %> </div>
+<div><%= link_to "Delete", [@user, trip], method: :delete %> </div>
 
 <div><%= link_to "locations", trip_locations_path(trip) %></div>
 
