@@ -1,2 +1,8 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h1><%= @trip.name %> Review</h1>
+<h4>Title: <%= @review.title %></h4>
+<h4>Body: <%= @review.body %></h4>
+<h4>Score: <%= @review.score %></h4>
+<br />
+<%= link_to 'Edit review', edit_trip_review_path([@trip, @review]) %> |
+<%= link_to 'Delete review', [@trip, @review], method: :delete %> |
+<%= link_to 'Back To reviews', trip_reviews_path(@trip) %>
